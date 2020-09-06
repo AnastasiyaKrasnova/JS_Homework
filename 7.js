@@ -1,6 +1,5 @@
 function count(main_str, sub_str) 
     {
-
     if (sub_str.length <= 0) 
     {
         return 0;

@@ -36,7 +36,7 @@ async function handler() {
 }
 
 function reqArray(arr){
-  var req=Array();
+  let req=Array();
   for(let i=0;i<arr.length;i++){
     req.push(makeRequest(arr[i]));
   }

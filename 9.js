@@ -1,19 +1,19 @@
 function clean(arr,callback) {
-  arr=arr_delete(arr);
-  setTimeout(function no(){}, 5000);
-  if (arr.length>0){
+  setTimeout(()=>{
+    arr=arr_delete(arr);
+    if (arr.length>0){
       callback(arr);
   }
   else callback(new Error(`FFF`));
+  },5000);
+  
 }
 function arr_delete(arr){
-    arr = arr.filter(function(x) {
-    return x !== undefined && x !== null; 
-    });
+    arr = arr.filter(x=> x !== undefined && x !== null);
     return arr;
 }
 
-clean([null,undefined,null],function(err,arr){
+clean([1,null,undefined,null],(err,arr)=>{
     if (err){
         console.log(err);
     }

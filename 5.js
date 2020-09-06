@@ -1,22 +1,9 @@
-function keyvalue(obj) 
+function key_value(obj) 
    {
-    var keys = _keys(obj);
-    var pairs = Array(keys.length);
-    for (var i = 0; i < keys.length; i++) 
-    {
-      pairs[i] = [keys[i], obj[keys[i]]];
+    let pairs=[];
+    for (const [key, value] of Object.entries(obj)) {
+    pairs.push([key,value]);
     }
     return pairs;
   }
-
-function _keys(obj) 
-  {
-    if (!isObject(obj)) return [];
-    if (Object.keys) return Object.keys(obj);
-  }
-function isObject(obj) 
- {
-    var type = typeof obj;
-    return type === 'function' || type === 'object' && !!obj;
-  }
-console.log(keyvalue({red: "#FF0000", green: "#00FF00", white: "#FFFFFF"}));
+console.log(key_value({red: "#FF0000", green: "#00FF00", white: "#FFFFFF"}));

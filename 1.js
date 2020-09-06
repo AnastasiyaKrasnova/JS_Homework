@@ -1,22 +1,12 @@
-var n0=610;
-var fibonacci_series = function (n) 
+const n0=610;
+const fibonacci_series = function (n) 
 {
-  if (n===1) 
-  {
-    return [0, 1];
-  } 
-  else 
-  {
-    var s = fibonacci_series(n - 1);
-    if (s[s.length-1]+s[s.length - 2]==n0){
-        return s;
-    }
-    else{
-        
-    s.push(s[s.length - 1] + s[s.length - 2]);
-    return s;
-    }
+  let arr=[0,1];
+  let i=0;
+  while(arr[i]+arr[i+1]<n0){
+    arr.push(arr[i]+arr[i+1]);
+    i++;
   }
+  return arr;
 };
-
  console.log(fibonacci_series(n0));

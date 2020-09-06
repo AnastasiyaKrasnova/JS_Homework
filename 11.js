@@ -1,18 +1,10 @@
-var delay = function(d) {
-    return new Promise(function(r) {
-        return setTimeout(r, d);
+function f(number, x) {
+    return new Promise(resolve => {
+        setTimeout(() => {
+            console.log(number);
+            resolve(number);
+        }, x)
     });
-};
- 
-let runPromisesInSeries=[
-    function() {
-        return delay(1000);
-    },
-    function() {
-        return delay(2000);
-    }
-]; 
-
-runPromisesInSeries.reduce(function(p, next) {
-        return p.then(next);
-    }, Promise.resolve());
+}
+const answer = [f(1, 1000), f(2, 3000), f(3, 2000)]
+    .reduce((previousValue, currentValue) => previousValue.then(currentValue));
